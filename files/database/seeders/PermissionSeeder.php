@@ -37,7 +37,7 @@ class PermissionSeeder extends Seeder
             [ 'name' => 'editar_plano'],
             [ 'name' => 'excluir_plano'],
 
-            // Assinaturas - 16/20
+            // SubscriptionController - 16/20
             [ 'name' => 'listar_assinaturas'],
             [ 'name' => 'criar_assinatura'],
             [ 'name' => 'ver_assinatura'],
@@ -97,26 +97,30 @@ class PermissionSeeder extends Seeder
 
         $model_has_permissions = [
             // Plano 1
-            [ 'permission_id' => 26, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 1 ],
-            [ 'permission_id' => 27, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 1 ],
-            [ 'permission_id' => 28, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 1 ],
+            [ 'permission_id' => 26, 'model_type' => 'App\Models\Plan', 'model_id' => 1 ],
+            [ 'permission_id' => 27, 'model_type' => 'App\Models\Plan', 'model_id' => 1 ],
+            [ 'permission_id' => 28, 'model_type' => 'App\Models\Plan', 'model_id' => 1 ],
 
             // Plano 2
-            [ 'permission_id' => 26, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 2 ],
-            [ 'permission_id' => 27, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 2 ],
-            [ 'permission_id' => 28, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 2 ],
-            [ 'permission_id' => 29, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 2 ],
-            [ 'permission_id' => 30, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 2 ],
-            [ 'permission_id' => 32, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 2 ],
+            [ 'permission_id' => 26, 'model_type' => 'App\Models\Plan', 'model_id' => 2 ],
+            [ 'permission_id' => 27, 'model_type' => 'App\Models\Plan', 'model_id' => 2 ],
+            [ 'permission_id' => 28, 'model_type' => 'App\Models\Plan', 'model_id' => 2 ],
+            [ 'permission_id' => 29, 'model_type' => 'App\Models\Plan', 'model_id' => 2 ],
+            [ 'permission_id' => 30, 'model_type' => 'App\Models\Plan', 'model_id' => 2 ],
+            [ 'permission_id' => 32, 'model_type' => 'App\Models\Plan', 'model_id' => 2 ],
 
             // Plano 3
-            [ 'permission_id' => 26, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 3 ],
-            [ 'permission_id' => 27, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 3 ],
-            [ 'permission_id' => 28, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 3 ],
-            [ 'permission_id' => 29, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 3 ],
-            [ 'permission_id' => 30, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 3 ],
-            [ 'permission_id' => 31, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 3 ],
-            [ 'permission_id' => 32, 'model_type' => 'App\Models\iPag\Plan', 'model_id' => 3 ],
+            [ 'permission_id' => 26, 'model_type' => 'App\Models\Plan', 'model_id' => 3 ],
+            [ 'permission_id' => 27, 'model_type' => 'App\Models\Plan', 'model_id' => 3 ],
+            [ 'permission_id' => 28, 'model_type' => 'App\Models\Plan', 'model_id' => 3 ],
+            [ 'permission_id' => 29, 'model_type' => 'App\Models\Plan', 'model_id' => 3 ],
+            [ 'permission_id' => 30, 'model_type' => 'App\Models\Plan', 'model_id' => 3 ],
+            [ 'permission_id' => 31, 'model_type' => 'App\Models\Plan', 'model_id' => 3 ],
+            [ 'permission_id' => 32, 'model_type' => 'App\Models\Plan', 'model_id' => 3 ],
+
+            // Usuário vendedor
+            [ 'permission_id' => 16, 'model_type' => 'App\Models\User', 'model_id' => 1 ],
+            [ 'permission_id' => 17, 'model_type' => 'App\Models\User', 'model_id' => 1 ],
         ];
         foreach ($model_has_permissions as $model_has_permission) {
             DB::table('model_has_permissions')->insert($model_has_permission);

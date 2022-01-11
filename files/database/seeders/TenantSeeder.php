@@ -15,8 +15,7 @@ class TenantSeeder extends Seeder
     public function run()
     {
         $tenant = [
-            'user_id'               => 2,
-            'plan_id'               => 1,
+            'user_id'               => 1,
             'segment'               => 1,
             'name'                  => 'Agência Missel',
             'address_zipcode'       => '20.943-000',

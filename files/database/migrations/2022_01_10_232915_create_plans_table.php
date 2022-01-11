@@ -18,9 +18,14 @@ class CreatePlansTable extends Migration
             $table->uuid('uuid');
             $table->boolean('is_active')->default(true);
 
-            $table->string('ipag_id')->unique();
+            $table->string('name');
             $table->string('uri')->unique();
+
             $table->text('description')->nullable();
+
+            $table->double('amount', 10, 2);
+            $table->enum('frequency', ['monthly', 'weekly', 'daily'])->default('monthly');
+            $table->integer('interval')->default(1);
 
             $table->timestamps();
             $table->softDeletes();

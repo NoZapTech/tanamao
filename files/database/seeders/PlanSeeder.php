@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\iPag\Plan;
+use App\Models\Plan;
 use Illuminate\Database\Seeder;
 
 class PlanSeeder extends Seeder
@@ -15,12 +15,12 @@ class PlanSeeder extends Seeder
     public function run()
     {
         $plans = [
-            [ 'ipag_id'  => 741 ],
-            [ 'ipag_id'  => 742 ],
-            [ 'ipag_id'  => 743 ],
-            [ 'ipag_id'  => 744 ],
-            [ 'ipag_id'  => 745 ],
-            [ 'ipag_id'  => 746 ],
+            [ 'name'  => 'Plano 1', 'amount' => 29.90, 'frequency' => 'monthly', 'interval' => 1],
+            [ 'name'  => 'Plano 2', 'amount' => 37.90, 'frequency' => 'monthly', 'interval' => 1],
+            [ 'name'  => 'Plano 3', 'amount' => 44.90, 'frequency' => 'monthly', 'interval' => 1],
+            [ 'name'  => 'Plano 4', 'amount' => 49.90, 'frequency' => 'monthly', 'interval' => 1],
+            [ 'name'  => 'Plano 5', 'amount' => 89.90, 'frequency' => 'monthly', 'interval' => 1],
+            [ 'name'  => 'Plano 6', 'amount' => 149.90, 'frequency' => 'monthly', 'interval' => 1],
         ];
         foreach ($plans as $plan) {
             Plan::create($plan);

@@ -21,9 +21,6 @@ class CreateTenantsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('plan_id');
-            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
-
             $table->unsignedBigInteger('segment');
             $table->foreign('segment')->references('id')->on('segments')->onDelete('cascade');
             $table->string('segment_custom')->nullable();

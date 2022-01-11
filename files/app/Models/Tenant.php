@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\iPag\Plan;
 use App\Models\iPag\Subscription;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,9 +18,7 @@ class Tenant extends Model
      */
     protected $fillable = [
         'is_active',
-        'user_uuid',
-        'plan_uuid',
-        'subscription_uuid',
+        'user_id',
         'segment',
         'segment_custom',
         'name',
@@ -46,11 +43,6 @@ class Tenant extends Model
     public function segment()
     {
         return $this->belongsTo(Segment::class);
-    }
-
-    public function plan()
-    {
-        return $this->belongsTo(Plan::class);
     }
 
     public function subscription()

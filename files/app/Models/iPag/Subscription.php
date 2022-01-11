@@ -18,8 +18,12 @@ class Subscription extends Model
      */
     protected $fillable = [
         'is_active',
+        'tenant_id',
         'ipag_id',
-        'tenant_uuid',
+        'status',
+        'order_id',
+        'seller_id',
+        'toc',
     ];
 
     public function tenant()

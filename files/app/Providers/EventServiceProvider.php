@@ -2,18 +2,17 @@
 
 namespace App\Providers;
 
-use App\Models\iPag\Plan;
+use App\Models\Plan;
 use App\Models\Segment;
 use App\Models\Tenant;
 use App\Models\User;
-use App\Observers\iPag\PlanObserver;
+use App\Observers\PlanObserver;
 use App\Observers\SegmentObserver;
 use App\Observers\TenantObserver;
 use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {

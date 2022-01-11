@@ -1,22 +1,26 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route,
+    App\Http\Controllers\DashboardController,
+    App\Http\Controllers\Comercial\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::group(['middleware' => 'auth:sanctum', 'as' => 'dashboard.', 'prefix' => ''], function () {
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+    // Rotas do painel  - PainelController
+    Route::get('', [DashboardController::class, 'welcome'])->name('welcome');
+
+    // Comercial
+    Route::group(['middleware' => 'can:listar_assinaturas', 'as' => 'comercial.', 'prefix' => 'comercial'], function() {
+
+        // SubscriptionController
+        Route::get('assinaturas', [SubscriptionController::class, 'index'])->name('assinaturas.index');
+        Route::get('assinaturas/nova', [SubscriptionController::class, 'create'])->name('assinaturas.create');
+        Route::post('assinaturas/nova', [SubscriptionController::class, 'store'])->name('assinaturas.store');
+    });
+});

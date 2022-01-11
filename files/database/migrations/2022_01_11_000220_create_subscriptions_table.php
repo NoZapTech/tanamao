@@ -18,9 +18,17 @@ class CreateSubscriptionsTable extends Migration
             $table->uuid('uuid');
             $table->boolean('is_active')->default(true);
 
-            $table->string('ipag_id');
             $table->unsignedBigInteger('tenant_id');
             $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
+
+            $table->string('ipag_id');
+            $table->enum('status', ['pending', 'paid', 'overdue'])->default('pending');
+            $table->string('order_id')->unique();
+
+            $table->unsignedBigInteger('seller_id')->nullable();
+            $table->foreign('seller_id')->references('id')->on('users');
+
+            $table->boolean('toc')->default(false);
 
             $table->timestamps();
             $table->softDeletes();
